@@ -42,7 +42,7 @@ function App() {
           <div className="grid gap-8 px-6 py-8 sm:px-8 lg:px-10 lg:py-10">
             <div>
               <p className="text-sm font-medium uppercase text-cyan-300">
-                Fintual
+                Finance App
               </p>
               <h1 className="mt-4 max-w-3xl text-4xl font-semibold tracking-tight text-white sm:text-5xl">
                 Portfolio management

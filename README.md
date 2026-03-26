@@ -4,6 +4,10 @@ This project is a small portfolio management UI built with React, TypeScript, Vi
 
 It models a portfolio of stock holdings, compares those holdings against a target allocation, and shows the rebalance actions required to move the portfolio toward that target.
 
+## Live preview
+
+https://leonardlib.github.io/portfolio-management/
+
 ## Project Structure
 
 ```text
