@@ -1,73 +1,68 @@
-# React + TypeScript + Vite
+# Portfolio Management Module
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This project is a small portfolio management UI built with React, TypeScript, Vite, and Tailwind CSS.
 
-Currently, two official plugins are available:
+It models a portfolio of stock holdings, compares those holdings against a target allocation, and shows the rebalance actions required to move the portfolio toward that target.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Project Structure
 
-## React Compiler
-
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```text
+src/
+  App.tsx                Main dashboard UI
+  domain/
+    __tests__/
+      portfolio.spec.ts  Portfolio domain tests
+      stock.spec.ts      Stock domain tests
+    portfolio.ts         Portfolio and rebalance logic
+    stock.ts             Stock model
+  types.ts               Shared types for allocations and actions
+  utils/
+    formatter.ts         Currency and share formatting helpers
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## Run Locally
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+### Prerequisites
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+- Node.js
+- npm
+
+### Install Dependencies
+
+```bash
+npm install
+```
+
+### Start The Development Server
+
+```bash
+npm run dev
+```
+
+This starts the Vite development server with hot module replacement.
+
+### Build For Production
+
+```bash
+npm run build
+```
+
+This runs TypeScript compilation and creates a production build in `dist/`.
+
+### Preview The Production Build
+
+```bash
+npm run preview
+```
+
+### Run Linting
+
+```bash
+npm run lint
+```
+
+### Run Testing
+
+```bash
+npm run test
 ```

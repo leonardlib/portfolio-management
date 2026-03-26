@@ -1,6 +1,11 @@
-import { HOLDINGS_MOCK } from '../constants';
 import type { AllocationTarget, RebalanceAction } from '../types';
-import type { Stock } from './stock';
+import { Stock } from './stock';
+
+const HOLDINGS_MOCK: Stock[] = [
+  new Stock('META', 8),
+  new Stock('AAPL', 18),
+  new Stock('MSFT', 4),
+];
 
 /**
  * Represents a portfolio composed of current stock holdings and a target
@@ -80,7 +85,15 @@ export class Portfolio {
           (allocation) => stock.getTicker() == allocation.ticker,
         );
 
-        if (!allocationTarget) return undefined;
+        if (!allocationTarget) {
+          return {
+            ticker: stock.getTicker(),
+            action: 'sell',
+            currentMarketCap: stock.getMarketCap(),
+            targetMarketCap: 0,
+            currentPrice: stock.getCurrentPrice(),
+          };
+        }
 
         const targetMarketCap =
           this.getTotalMarketCap() * allocationTarget.weight;

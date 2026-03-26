@@ -1,7 +1,13 @@
 import clsx from 'clsx';
-import { ALLOCATIONS_MOCK } from './constants';
+
 import { Portfolio } from './domain/portfolio';
+import type { AllocationTarget } from './types';
 import { currencyFormatter, shareFormatter } from './utils/formatter';
+
+const ALLOCATIONS_MOCK: AllocationTarget[] = [
+  { ticker: 'META', weight: 40 },
+  { ticker: 'AAPL', weight: 60 },
+];
 
 const portfolio = new Portfolio(ALLOCATIONS_MOCK);
 

@@ -1,3 +1,9 @@
+const PRICES_MOCK: Record<string, number> = {
+  META: 100,
+  AAPL: 50,
+  MSFT: 250,
+};
+
 /**
  * Represents a stock holding inside the portfolio.
  * It stores the ticker, owned shares, and a simplified current price.
@@ -25,8 +31,7 @@ export class Stock {
    * or database.
    */
   private resolveCurrentPrice(): number {
-    const array = new Uint8Array(1);
-    return crypto.getRandomValues(array)[0];
+    return PRICES_MOCK[this.ticker] ?? 0;
   }
 
   getTicker(): string {
